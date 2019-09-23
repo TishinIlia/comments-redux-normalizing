@@ -14,6 +14,8 @@ class Articles extends PureComponent {
 
   render() {
     const {isLoading, result} = this.props.articles;
+    if (result == null) return <div/>
+    const article = result.entities.article[1];
     return (
       <>
         <h2 className={`text-center`}>Article and comments</h2>
@@ -22,12 +24,12 @@ class Articles extends PureComponent {
             ?
             <div className="loading loading-lg"/>
             :
-            result != null && <div className="article">
+            <div className="article">
               <div className={`${styles.head}`}>
-                <h2>{result.title}</h2>
-                <div className={`text-gray mb-2`}>{format(new Date(result.date * 1000), 'MM/dd/yyyy HH:mm:ss')}</div>
+                <h2>{article.title}</h2>
+                <div className={`text-gray mb-2`}>{format(new Date(article.date * 1000), 'MM/dd/yyyy HH:mm:ss')}</div>
               </div>
-              <div className="article__text" dangerouslySetInnerHTML={{ __html: result.text }}/>
+              <div className="article__text" dangerouslySetInnerHTML={{ __html: article.text }}/>
             </div>
         }
         <Comments comments={this.props.comments.result} loading={this.props.comments.isLoading}/>

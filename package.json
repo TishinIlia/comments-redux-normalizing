@@ -21,7 +21,9 @@
     "reselect": "4.0.0",
     "spectre.css": "^0.5.8",
     "date-fns": "^2.2.1",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "normalizr": "^3.4.1",
+    "json-api-normalizer": "^0.4.16"
   },
   "devDependencies": {
     "typescript": "3.3.3",

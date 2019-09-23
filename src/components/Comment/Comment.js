@@ -16,7 +16,7 @@ class Comment extends PureComponent {
   }
 
   render() {
-    const {comment} = this.props;
+    const {comment, replies} = this.props;
     const {count} = this.state;
     return (
       <div className={`tile ${styles.comment}`}>
@@ -24,11 +24,11 @@ class Comment extends PureComponent {
           <h6 className="tile-title text-bold">{comment.name}</h6>
           <p className="tile-subtitle" dangerouslySetInnerHTML={{ __html: comment.commentText }}/>
           {
-            comment.replies != null && <div>
+            replies != null && <div>
               {
-                comment.replies.length && <div>
+                replies.length && <div>
                   {
-                    comment.replies.map(item => <Replie key={item.id} replie={item}/>)
+                    replies.map(item => <Replie key={item.id} replie={item}/>)
                   }
                 </div>
               }
@@ -42,7 +42,8 @@ class Comment extends PureComponent {
 }
 
 Comment.propTypes = {
-  comment: PropTypes.object
+  comment: PropTypes.object,
+  replies: PropTypes.array
 };
 
 export default Comment
