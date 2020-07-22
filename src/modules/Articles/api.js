@@ -1,2 +1,2 @@
 import {articleAPI} from '../../utils/utils'
-export const getArticles = form => articleAPI.get();
+export const getArticles = () => articleAPI.get();

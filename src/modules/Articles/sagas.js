@@ -6,6 +6,7 @@ export function* fetchArticles(action) {
   const queries = action.payload;
   try {
     const response = yield call(getArticles, queries);
+    console.log(response)
     yield put(articlesSuccess(response));
   } catch (error) {
     yield put(articlesFailure(error));

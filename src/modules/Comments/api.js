@@ -1,2 +1,2 @@
 import {commentsAPI} from '../../utils/utils'
-export const getComments = form => commentsAPI.get();
+export const getComments = () => commentsAPI.get();

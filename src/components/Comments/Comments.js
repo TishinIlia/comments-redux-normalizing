@@ -39,8 +39,8 @@ class Comments extends PureComponent {
               </div>
               <div className="panel-footer">
                 <div className="input-group">
-                  <input className="form-input" type="text" placeholder="Hello"/>
-                    <button className="btn btn-primary input-group-btn">Send</button>
+                  <input className="form-input disabled" type="text" placeholder="Hello"/>
+                    <button className="btn btn-primary input-group-btn disabled">Send</button>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types';
-import Replie from '../Replie'
+import Reply from '../Reply'
 import styles from './Comment.module.scss'
 class Comment extends PureComponent {
   constructor(props) {
@@ -28,7 +28,7 @@ class Comment extends PureComponent {
               {
                 replies.length && <div>
                   {
-                    replies.map(item => <Replie key={item.id} replie={item}/>)
+                    replies.map(item => <Reply key={item.id} reply={item}/>)
                   }
                 </div>
               }

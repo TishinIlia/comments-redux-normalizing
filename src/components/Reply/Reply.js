@@ -1,12 +1,12 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types';
-import styles from './Replie.module.scss'
+import styles from './Reply.module.scss'
 
-class Replie extends PureComponent {
+class Reply extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      count: props.replie.likes
+      count: props.reply.likes
     };
     this.handleClickLike = this.handleClickLike.bind(this);
   }
@@ -16,19 +16,19 @@ class Replie extends PureComponent {
   }
 
   render() {
-    const {replie} = this.props;
+    const {reply} = this.props;
     const {count} = this.state;
     return (
-      <div className={`${styles.replie} p-relative`}>
-        <h6 className="tile-title text-bold">{replie.name}</h6>
-        <p className="tile-subtitle" dangerouslySetInnerHTML={{ __html: replie.commentText }}/>
+      <div className={`${styles.reply} p-relative`}>
+        <h6 className="tile-title text-bold">{reply.name}</h6>
+        <p className="tile-subtitle" dangerouslySetInnerHTML={{ __html: reply.commentText }}/>
         <span className={`c-hand p-absolute ${styles.like}`} onClick={this.handleClickLike}><i className="icon icon-people"/> {count > 0 ? count + ' likes' : ''}</span>
         {
-          replie.replies != null && <div>
+          reply.replies != null && <div>
             {
-              replie.replies.length > 0 && <div>
+              reply.replies.length > 0 && <div>
                 {
-                  replie.replies.map(item => <Replie key={item.id} replie={item}/>)
+                  reply.replies.map(item => <Reply key={item.id} reply={item}/>)
                 }
               </div>
             }
@@ -39,8 +39,8 @@ class Replie extends PureComponent {
   }
 }
 
-Replie.propTypes = {
-  replie: PropTypes.object
+Reply.propTypes = {
+  reply: PropTypes.object
 };
 
-export default Replie
+export default Reply
